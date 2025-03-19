@@ -22,8 +22,8 @@ inputs:
     description: 'Allow anonymous connections.'
     required: false
     default: false
-  config:
-    description: 'Absolute path to the mosquitto.conf configuration file to use'
+  config_dir:
+    description: 'Absolute path to the config dir containing the configuration file to use'
     required: false
     default: ''
   password-file:
@@ -43,6 +43,6 @@ runs:
     - ${{ inputs.ports }}
     - ${{ inputs.anonymous }}
     - ${{ inputs.certificates }}
-    - ${{ inputs.config }}
+    - ${{ inputs.config_dir }}
     - ${{ inputs.password-file }}
     - ${{ inputs.container-name }}
