@@ -41,6 +41,7 @@ runs:
   args:
     - ${{ inputs.version }}
     - ${{ inputs.ports }}
+    - ${{ inputs.anonymous }}
     - ${{ inputs.certificates }}
     - ${{ inputs.config }}
     - ${{ inputs.password-file }}
