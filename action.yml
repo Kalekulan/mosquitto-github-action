@@ -18,6 +18,10 @@ inputs:
     description: 'Absolute path to a directory containing certificate files which can be referenced in the config (the folder is mounted under `/mosquitto-certs`)'
     required: false
     default: ''
+  anonymous:
+    description: 'Allow anonymous connections.'
+    required: false
+    default: false
   config:
     description: 'Absolute path to the mosquitto.conf configuration file to use'
     required: false
