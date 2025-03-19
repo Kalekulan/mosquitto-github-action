@@ -2,10 +2,11 @@
 
 VERSION=$1
 PORTS=$2
-CERTIFICATES=$3
-CONFIG=$4
-PASSWORD_FILE=$5
-CONTAINERNAME=$6
+ANONYMOUS=$3
+CERTIFICATES=$4
+CONFIG_DIR=$5
+PASSWORD_FILE=$6
+CONTAINERNAME=$7
 
 echo "Certificates: $CERTIFICATES"
 echo "Config: $CONFIG"
@@ -17,12 +18,13 @@ do
   docker_run="$docker_run --publish $i"
 done
 
+
 if [ -n "$CERTIFICATES" ]; then
   docker_run="$docker_run --volume $CERTIFICATES:/mosquitto-certs:ro"
 fi
 
-if [ -n "$CONFIG" ]; then
-  docker_run="$docker_run --volume $CONFIG:/mosquitto/config/mosquitto.conf:ro"
+if [ -n "$CONFIG_DIR" ]; then
+  docker_run="$docker_run --volume $CONFIG_DIR:/mosquitto/config/:ro"
 fi
 
 if [ -n "$PASSWORD_FILE" ]; then
